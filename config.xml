@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="no.claustest.cordovagalaxyportal" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>CordovaGalaxyPortal</name>
+    <description>
+        Portal app for the Galaxy service.
+    </description>
+    <author email="clausbo@ifi.uio.no" href="http://cordova.io">
+        Master Student University of Oslo
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+</widget>
