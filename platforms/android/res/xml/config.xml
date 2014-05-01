@@ -6,10 +6,10 @@
     </feature>
     <name>CordovaGalaxyPortal</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Portal app for the Galaxy service.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="clausbo@ifi.uio.no" href="http://cordova.io">
+        Master Student University of Oslo
     </author>
     <content src="index.html" />
     <access origin="*" />
