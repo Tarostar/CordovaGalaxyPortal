@@ -45,5 +45,50 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    },
+    getHistories : function()
+    {
+      // test: https://api.github.com/users/mralexgray/repos
+      // https://usegalaxy.org/api/histories?key=218afad6146272c7c771688e10fb9884
+      $.getJSON('https://usegalaxy.org/api/histories?key=218afad6146272c7c771688e10fb9884', function(data) {
+        document.getElementById("myHistories").innerHTML = JSON.stringify(data);
+        }).fail(function(d) {
+                document.getElementById("myHistories").innerHTML = JSON.stringify(d);
+                alert("error");
+            });
+        /*$.getJSON('https://api.github.com/users/mralexgray/repos', function(d) {
+                document.getElementById("myHistories").innerHTML = JSON.stringify(data);
+                alert("huh");
+            }).done(function(d) {
+            }).fail(function(d) {
+                document.getElementById("myHistories").innerHTML = d;
+                alert("error");
+            }).always(function(d) {
+            alert("edfdsfs");
+            });*/
     }
+    
+    /*function getJSONP(url, success) {
+
+        var ud = '_' + +new Date,
+            script = document.createElement('script'),
+            head = document.getElementsByTagName('head')[0] 
+                   || document.documentElement;
+
+        window[ud] = function(data) {
+            head.removeChild(script);
+            success && success(data);
+        };
+
+        script.src = url.replace('callback=?', 'callback=' + ud);
+        head.appendChild(script);
+
+    }
+
+    getJSONP('https://usegalaxy.org/api/histories?key=218afad6146272c7c771688e10fb9884', function(data){
+        console.log(data);
+    }); */
+    
 };
+
+        
