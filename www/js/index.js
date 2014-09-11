@@ -49,13 +49,38 @@ var app = {
     getHistories : function()
     {
       // test: https://api.github.com/users/mralexgray/repos
+      // http://ip.jsontest.com/
       // https://usegalaxy.org/api/histories?key=218afad6146272c7c771688e10fb9884
-      $.getJSON('https://usegalaxy.org/api/histories?key=218afad6146272c7c771688e10fb9884', function(data) {
+      //$.getJSON( " https://api.github.com/users/mralexgray/repos", { name: "John", time: "2pm" } )
+      
+      /*$.getJSON('https://usegalaxy.org/api/histories', function(data) {
         document.getElementById("myHistories").innerHTML = JSON.stringify(data);
         }).fail(function(d) {
                 document.getElementById("myHistories").innerHTML = JSON.stringify(d);
                 alert("error");
+            });*/
+            
+            $.ajax({
+                type: 'get',
+                url: 'https://usegalaxy.org/api/histories',
+                data: {key: "218afad6146272c7c771688e10fb9884"},
+                xhrFields: {withCredentials: true}
+            }).done(function( json ) {
+                console.log( "JSON Data: " + JSON.stringify(json));
+                })
+                .fail(function( jqxhr, textStatus, error ) {
+                var err = textStatus + ", " + error;
+                console.log( "Request Failed: " + err );
             });
+            
+           /* $.getJSON( "https://usegalaxy.org/api/histories", { key: "218afad6146272c7c771688e10fb9884"} )
+                .done(function( json ) {
+                console.log( "JSON Data: " + JSON.stringify(json));
+                })
+                .fail(function( jqxhr, textStatus, error ) {
+                var err = textStatus + ", " + error;
+                console.log( "Request Failed: " + err );
+            });*/
         /*$.getJSON('https://api.github.com/users/mralexgray/repos', function(d) {
                 document.getElementById("myHistories").innerHTML = JSON.stringify(data);
                 alert("huh");
